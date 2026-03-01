@@ -13,8 +13,9 @@ let package = Package(
         .executableTarget(
             name: "KinderMap",
             path: ".",
-            exclude: ["README.md", ".vscode"],
-            sources: ["App", "Model", "Protocol", "Services", "ViewModel", "Views", "Resources"]
+            exclude: ["README.md", ".vscode", "LICENSE"],
+            sources: ["App", "Model", "Protocol", "Services", "ViewModel", "Views"],
+            resources: [.process("Resources/question.json")]
         )
     ]
 )

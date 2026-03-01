@@ -41,7 +41,7 @@ struct QuestionnaireView: View {
 struct DomainSectionView: View {
     let domain: DevelopmentDomain
     let questions: [DomainQuestion]
-    @Binding var answers: [UUID: Bool]
+    @Binding var answers: [String: Bool]
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
