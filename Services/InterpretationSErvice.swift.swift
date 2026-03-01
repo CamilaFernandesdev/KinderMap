@@ -3,8 +3,8 @@ final class InterpretationService: InterpretationCalculating {
 
     func interpret(domainScores: [DevelopmentDomain: Int]) -> [DomainResult] {
 
-        domainScores.map { domain, score in
-
+        domainScores.map { entry in
+            let score = entry.value
             let level: DevelopmentLevel
 
             switch score {
@@ -16,7 +16,7 @@ final class InterpretationService: InterpretationCalculating {
                 level = .estimulacao
             }
 
-            return DomainResult(domain: domain, score: score, level: level)
+            return DomainResult(domain: entry.key, score: score, level: level)
         }
     }
 }

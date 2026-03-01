@@ -6,7 +6,7 @@ extension DevelopmentDomain {
         case .motor: return Color.blue
         case .language: return Color.purple
         case .social: return Color.orange
-        case .cognition: return Color.green
+        case .cognitive: return Color.green
         }
     }
 }

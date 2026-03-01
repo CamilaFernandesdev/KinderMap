@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct KinderMapRootView: View {
-    @StateObject private var viewModel = KinderMapViewModel()
+struct ContentView: View {
+    @StateObject private var viewModel = AssessmentViewModel()
     @Namespace private var animationNamespace
 
     var body: some View {
@@ -45,12 +45,11 @@ struct KinderMapRootView: View {
     }
 }
 
-struct KinderMapRootView_Previews: PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        KinderMapRootView()
+        ContentView()
             .preferredColorScheme(.light)
-        KinderMapRootView()
+        ContentView()
             .preferredColorScheme(.dark)
     }
 }
-

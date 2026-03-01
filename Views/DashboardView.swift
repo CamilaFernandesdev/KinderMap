@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct DashboardView: View {
-    @ObservedObject var viewModel: KinderMapViewModel
+    @ObservedObject var viewModel: AssessmentViewModel
     var namespace: Namespace.ID
 
     var body: some View {

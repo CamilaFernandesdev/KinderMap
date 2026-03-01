@@ -1,8 +1,9 @@
 import SwiftUI
 
 struct ChildFormView: View {
-    @ObservedObject var viewModel: KinderMapViewModel
+    @ObservedObject var viewModel: AssessmentViewModel
     var namespace: Namespace.ID
+    
 
     var body: some View {
         VStack(spacing: 24) {
@@ -21,14 +22,14 @@ struct ChildFormView: View {
                 .fill(Color.appSecondaryBackground.opacity(0.9))
                 .overlay(
                     VStack(spacing: 16) {
-                        TextField("Nome da criança", text: $viewModel.child.name)
+                        TextField("Nome da criança", text: viewModel.childNameBinding)
                             .padding(12)
                             .background(
                                 RoundedRectangle(cornerRadius: 14, style: .continuous)
                                     .fill(Color.appSystemBackground)
                             )
 
-                        Picker("Gênero", selection: $viewModel.child.gender) {
+                        Picker("Gênero", selection: viewModel.childGenderBinding) {
                             ForEach(Gender.allCases) { gender in
                                 Text(gender.rawValue).tag(gender)
                             }
@@ -36,10 +37,16 @@ struct ChildFormView: View {
                         .pickerStyle(.segmented)
 
                         DatePicker("Data de nascimento",
-                                   selection: $viewModel.child.birthDate,
+                                   selection: viewModel.childBirthDateBinding,
                                    in: ...Date(),
                                    displayedComponents: .date)
                         .font(.system(.body, design: .rounded))
+
+                        if viewModel.childAgeInYears >= 0 {
+                            Text("Idade: \(viewModel.childAgeInYears) \(viewModel.childAgeInYears == 1 ? "ano" : "anos")")
+                                .font(.system(.subheadline, design: .rounded))
+                                .foregroundStyle(.secondary)
+                        }
                     }
                     .padding(18)
                 )

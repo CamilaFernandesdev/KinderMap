@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct QuestionnaireView: View {
-    @ObservedObject var viewModel: KinderMapViewModel
+    @ObservedObject var viewModel: AssessmentViewModel
 
     var body: some View {
         VStack(spacing: 16) {
